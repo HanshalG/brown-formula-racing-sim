@@ -1,0 +1,87 @@
+### General
+name: "Formula 1"
+type: "Open Wheel"
+
+### Inertia
+total_mass: 650 # kg
+front_mass_distribution: 45 # %
+
+### Dimensions
+wheelbase: 3000 # mm
+
+### Steering
+steering_rack_ratio: 10 # [Steering Wheel Angle]/[Wheel Angle]
+
+### Aerodynamics
+lift_coefficient_cl: -4.80 # Positive = Lift ; Negative = Downforce
+drag_coefficient_cd: -1.20 # Should be negative
+cl_scale_multiplier: 1
+cd_scale_multiplier: 1
+front_aero_distribution: 50 # %
+frontal_area: 1 # m2
+air_density: 1.23 # kg/m3 Recommended value: 1.225
+
+### Brakes
+disc_outer_diameter: 250 # mm Assumed to be the same on all corners.
+pad_height: 40 # mm Assumed to be the same on all corners.
+pad_friction_coefficient: 0.45 # Assumed to be the same on all pads. Recommended value: 0.45
+caliper_number_of_pistons: 6 # Assumed to be the same on all corners.
+caliper_piston_diameter: 40 # mm Assumed to be the same on all corners.
+master_cylinder_piston_diameter: 25 # mm Assumed to be the same both front and rear.
+pedal_ratio: 4 # [Foot Force Application Point Lever Arm]/[Master Cylinder Lever Arm]
+
+### Tyres
+grip_factor_multiplier: 1
+tyre_radius: 330 # mm Assumed to be the same on all tyres.
+rolling_resistance: -0.001 # Assumed to be the same on all tyres. Needs to be negative.
+longitudinal_friction_coefficient: 2 # Assumed to be the same on all tyres. Slick tyres: 1.8, Street tyres: 0.9-1.2
+longitudinal_friction_load_rating: 250 # kg Assumed to be the same on all tyres. Recommended value: M/4
+longitudinal_friction_sensitivity: 0.0001 # 1/N Assumed to be the same on all tyres. Should be positive.
+lateral_friction_coefficient: 2 # Assumed to be the same on all tyres. Slick tyres: 1.8, Street tyres: 0.9-1.2
+lateral_friction_load_rating: 250 # kg Assumed to be the same on all tyres. Recommended value: M/4
+lateral_friction_sensitivity: 0.0001 # 1/N Assumed to be the same on all tyres. Should be positive.
+front_cornering_stiffness: 800 # N/deg Recommended value: 800-1000
+rear_cornering_stiffness: 1000 # N/deg Recommended value: 800-1000
+
+### Engine
+power_factor_multiplier: 1
+thermal_efficiency: 0.35 # Recommended value: 0.3 for ICE
+fuel_lower_heating_value: 47200000 # J/kg Recommended value: 4.72E+07 for petrol
+
+### Transmission
+drive_type: "RWD"
+gear_shift_time: 0.01 # s Only used in dragster mode
+primary_gear_efficiency: 1 # Recommended value: 0.98 for spur/helical gears
+final_gear_efficiency: 0.92 # Recommended value: 0.90 for bevel gears
+gearbox_efficiency: 0.98 # Recommended value: 0.98 for spur/helical gears
+primary_gear_reduction: 1 # From crankshaft to input shaft.
+final_gear_reduction: 7
+gear_ratios:
+  - 2.57
+  - 2.11
+  - 1.75
+  - 1.46
+  - 1.29
+  - 1.13
+  - 1
+
+### Torque Curve
+engine_torque: # [speed_rpm, torque_nm]
+  - [1000, 125]
+  - [2000, 125]
+  - [3000, 125]
+  - [4000, 125]
+  - [5000, 125]
+  - [6000, 125]
+  - [7000, 150]
+  - [8000, 200]
+  - [9000, 240]
+  - [10000, 270]
+  - [11000, 300]
+  - [12000, 340]
+  - [13000, 350]
+  - [14000, 340]
+  - [15000, 330]
+  - [16000, 325]
+  - [17000, 312]
+  - [18000, 296.75]
