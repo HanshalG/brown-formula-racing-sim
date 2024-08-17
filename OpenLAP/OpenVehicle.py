@@ -1,6 +1,5 @@
 import pandas as pd
 import numpy as np
-import os
 import matplotlib.pyplot as plt
 from datetime import datetime
 import yaml
@@ -279,5 +278,50 @@ def output_vehicle_dict(vehicle_filepath : str):
     axs[3].set_xlim([vehicle_speed[0], vehicle_speed[-1]])
 
     plt.tight_layout(rect=[0, 0, 1, 0.97])
-    plt.show()
-    return GGV, engine_speed, wheel_torque, engine_torque, engine_power
+   # plt.show()
+    plt.clf()
+
+    vehicle_params.update({
+        'GGV': GGV,
+        'engine_speed': engine_speed,
+        'wheel_torque': wheel_torque,
+        'M': M,
+        'rho': rho,
+        'factor_Cl': factor_Cl,
+        'Cl': Cl,
+        'A': A,
+        'factor_Cd': factor_Cd,
+        'Cd': Cd,
+        'Cr': Cr,
+        'mu_x': mu_x,
+        'mu_y': mu_y,
+        'mu_x_M': mu_x_M,
+        'mu_y_M': mu_y_M,
+        'factor_grip': factor_grip,
+        'factor_drive': factor_drive,
+        'factor_aero': factor_aero,
+        'factor_power': factor_power,
+        'tyre_radius': tyre_radius,
+        'sens_x': sens_x,
+        'sens_y': sens_y,
+        'v_max': v_max,
+        'L': L,
+        'C': C_matrix,
+        'rack': rack,
+        'nog': nog,
+        'n_primary': n_primary,
+        'n_gearbox': n_gearbox,
+        'n_final': n_final,
+        'n_thermal': n_thermal,
+        'fuel_LHV': fuel_LHV,
+        'engine_torque': engine_torque,
+        'engine_power': engine_power,
+        'vehicle_speed': vehicle_speed,
+        'gear': gear,
+        'fx_engine': fx_engine,
+        'driven_wheels': driven_wheels,
+        'phi': phi,
+        'beta': beta
+    })
+
+    return vehicle_params
