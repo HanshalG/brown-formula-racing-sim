@@ -22,7 +22,7 @@ skidpad_time = run_skidpad('Rhode Rage', false) / 2;
 %autocross_time = run_lap('Rhode Rage', 'FSAE Autocross Nebraska 2013_Open_Forward', false);
 autocross_time = run_lap('Rhode Rage', '2019 AutoX_Open_Forward', false);
 
-endurance_time = run_lap('Rhode Rage', '2019 Endurance_V2_Closed_Forward', false) * 10 + 60;
+endurance_time = run_lap('Rhode Rage', '2019 Endurance_V2_Closed_Forward', false) * 10;
 
 accel_time
 skidpad_time

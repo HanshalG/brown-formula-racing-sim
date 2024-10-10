@@ -621,7 +621,7 @@ function skidpad_time_out = run_skidpad(vehicle_name, display_graph)
     %Calculate skidpad time from maximum lateral acceleration
     function skidpad_time = calculate_skidpad_time(maximum_lat_acc)
         maximum_lat_acc
-        SKIDPAD_RADIUS = 9.375
+        SKIDPAD_RADIUS = 9.125
         v = sqrt(maximum_lat_acc * SKIDPAD_RADIUS)
         skidpad_time = ((2 * pi * SKIDPAD_RADIUS) / v)*2
     end
