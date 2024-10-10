@@ -1,4 +1,4 @@
-function output = run_drag(vehicle_name, display_graph)
+function output = run_accel(vehicle_name, display_graph)
     %% Timer start
     
     % total timer start
