@@ -63,7 +63,8 @@ fclose('all') ;
 % filename = 'Monza Data.csv' ;
 % filename = 'OpenTRACK Laguna Seca Data.csv' ;
 % filename = 'OpenTRACK Paul Ricard Data.csv' ;
- filename = 'FSAE_Autocross_Nebraska_2013.xlsx' ;
+ %filename = 'Endurance v2.xlsx' ;
+ filename = 'AutoX 2019.xlsx' ;
 %filename = 'FSAE_Autocross_Nebraska_2013 copy.xlsx';
 %filename = 'FSA.xlsx'
 % filename = 'FSAE_Endurance_Michigan_2012.xlsx' ;

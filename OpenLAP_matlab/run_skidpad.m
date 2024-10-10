@@ -119,8 +119,7 @@ function skidpad_time_out = run_skidpad(vehicle_name, display_graph)
         ylabel('Curvature [m^-^1]')
         
         % accelerations
-        %subplot(rows,cols,[5,6])
-        figure();
+        subplot(rows,cols,[5,6])
         hold on
         plot(tr.x,sim.long_acc.data ./9.81)
         plot(tr.x,sim.lat_acc.data ./9.81)
@@ -132,8 +131,7 @@ function skidpad_time_out = run_skidpad(vehicle_name, display_graph)
         grid on
         
         % drive inputs
-        %subplot(rows,cols,[7,8])
-        figure();
+        subplot(rows,cols,[7,8])
         hold on
         plot(tr.x,sim.throttle.data*100)
         plot(tr.x,sim.brake_pres.data/10^5)

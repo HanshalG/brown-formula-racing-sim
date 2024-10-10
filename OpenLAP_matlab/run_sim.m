@@ -15,14 +15,19 @@ endurance_scores = zeros(1, length(intake_lengths))
 
 create_vehicle('vehicle_descriptions/Rhode Rage.xlsx');
     
-accel_time = run_accel('Rhode Rage', true);
+accel_time = run_accel('Rhode Rage', false);
     
-skidpad_time = run_skidpad('Rhode Rage', true);
+skidpad_time = run_skidpad('Rhode Rage', false) / 2;
 
-autocross_time = run_lap('Rhode Rage', 'FSAE Autocross Nebraska 2013_Open_Forward', true);
+%autocross_time = run_lap('Rhode Rage', 'FSAE Autocross Nebraska 2013_Open_Forward', false);
+autocross_time = run_lap('Rhode Rage', '2019 AutoX_Open_Forward', false);
+
+endurance_time = run_lap('Rhode Rage', '2019 Endurance_V2_Closed_Forward', false) * 10 + 60;
 
 accel_time
 skidpad_time
+autocross_time
+endurance_time
 
 %{
 for i =1:length(intake_lengths)

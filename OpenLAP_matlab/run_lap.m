@@ -116,8 +116,7 @@ function output = run_lap(vehicle_name, track, display_graph)
         ylabel('Curvature [m^-^1]')
         
         % accelerations
-        %subplot(rows,cols,[5,6])
-        figure();
+        subplot(rows,cols,[5,6])
         hold on
         plot(tr.x,sim.long_acc.data ./9.81)
         plot(tr.x,sim.lat_acc.data ./9.81)
@@ -125,12 +124,11 @@ function output = run_lap(vehicle_name, track, display_graph)
         legend({'LonAcc','LatAcc','GSum'},'Location',loc)
         xlabel('Distance [m]')
         xlim(xlimit)
-        ylabel('Acceleration [m/s^2]')
+        ylabel('Acceleration [G]')
         grid on
         
         % drive inputs
-        %subplot(rows,cols,[7,8])
-        figure();
+        subplot(rows,cols,[7,8])
         hold on
         plot(tr.x,sim.throttle.data*100)
         plot(tr.x,sim.brake_pres.data/10^5)
@@ -189,15 +187,15 @@ function output = run_lap(vehicle_name, track, display_graph)
     %% Report generation
     
     % csv report generation
-    export_report(veh,tr,sim,freq,logid) ;
+    %export_report(veh,tr,sim,freq,logid) ;
     % saving .mat file
-    save(simname+".mat",'veh','tr','sim')
+    %save(simname+".mat",'veh','tr','sim')
     % HUD
-    toc
-    fprintf(logid,'%s','Elapsed time is: ') ;
-    fprintf(logid,'%f',toc) ;
-    fprintf(logid,'%s\n',' [s]') ;
-    fclose('all') ;
+    %toc
+    %fprintf(logid,'%s','Elapsed time is: ') ;
+    %fprintf(logid,'%f',toc) ;
+    %fprintf(logid,'%s\n',' [s]') ;
+    %fclose('all') ;
     
     %% Functions
     
