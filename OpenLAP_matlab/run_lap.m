@@ -35,12 +35,9 @@ function output = run_lap(vehicle_name, track, display_graph)
     [folder_status,folder_msg] = mkdir('OpenLAP Sims') ;
     delete(simname+".log") ;
     logid = fopen(logfile,'w') ;
-    disp_logo(logid)
     disp('=================================================')
     disp("Vehicle: "+veh.name)
     disp("Track:   "+tr.info.name)
-    disp("Date:    "+datestr(now,'dd/mm/yyyy'))
-    disp("Time:    "+datestr(now,'HH:MM:SS'))
     disp('=================================================')
     fprintf(logid,'%s\n','=================================================') ;
     fprintf(logid,'%s\n',"Vehicle: "+veh.name) ;
@@ -217,8 +214,6 @@ function output = run_lap(vehicle_name, track, display_graph)
         bps_v_max = single(zeros(tr.n,1)) ;
         tps_v_max = single(zeros(tr.n,1)) ;
         for i=1:tr.n
-            disp(i)
-            disp(vehicle_model_lat(veh,tr,i))
             [v_max(i),tps_v_max(i),bps_v_max(i)] = vehicle_model_lat(veh,tr,i) ;
         end
         

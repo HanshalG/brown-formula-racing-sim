@@ -175,29 +175,43 @@ function create_vehicle(vehicle_filename)
     % HUD
     disp('Driveline model generated successfully.')
     
-    %% Shifting Points and Rev Drops
-    
     % finding gear changes
-    gear_change = diff(gear) ; % gear change will appear as 1
+    gear_change = diff(gear); % gear change will appear as 1
     % getting speed right before and after gear change
-    gear_change = logical([gear_change;0]+[0;gear_change]) ;
+    gear_change = logical([gear_change;0]+[0;gear_change]);
     % getting engine speed at gear change
-    engine_speed_gear_change = engine_speed(gear_change) ;
-    % getting shift points
-    shift_points = engine_speed_gear_change(1:2:length(engine_speed_gear_change)) ;
-    % getting arrive points
-    arrive_points = engine_speed_gear_change(2:2:length(engine_speed_gear_change)) ;
-    % calculating revdrops
-    rev_drops = shift_points-arrive_points ;
-    % creating shifting table
-    rownames = cell(nog-1,1) ;
-    for i=1:nog-1
-        rownames(i) = {[num2str(i,'%d'),'-',num2str(i+1,'%d')]} ;
-    end
-    shifting = table(shift_points,arrive_points,rev_drops,'RowNames',rownames) ;
-    % HUD
-    disp('Shift points calculated successfully.')
+    engine_speed_gear_change = engine_speed(gear_change);
     
+    % Ensure we have an even number of gear change points
+    if mod(length(engine_speed_gear_change), 2) ~= 0
+        engine_speed_gear_change = engine_speed_gear_change(1:end-1);
+    end
+    
+    % getting shift points
+    shift_points = engine_speed_gear_change(1:2:end);
+    % getting arrive points
+    arrive_points = engine_speed_gear_change(2:2:end);
+    
+    % calculating revdrops
+    rev_drops = shift_points - arrive_points;
+    
+    % Calculate the number of detected gear shifts
+    num_shifts = length(shift_points);
+    
+    % Dynamically create rownames based on the number of detected shifts
+    rownames = cell(num_shifts, 1);
+    for i = 1:num_shifts
+        rownames{i} = [num2str(i, '%d'), '-', num2str(i + 1, '%d')];
+    end
+    
+    % Create the shifting table with correct row names
+    shifting = table(shift_points, arrive_points, rev_drops, 'RowNames', rownames);
+    
+    % HUD
+    disp('Shift points calculated successfully.');
+    
+    
+        
     %% Force model
     
     % gravitational constant

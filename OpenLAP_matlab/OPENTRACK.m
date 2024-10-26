@@ -1,55 +1,3 @@
-%% OpenLAP Laptime Simulation Project
-%
-% OpenTRACK
-%
-% Track model file creation for use in OpenLAP.
-% Instructions:
-% 1) Select a track excel file containing the track information by
-%    assigning the full path to the variable "filename". To select the
-%    input method, change the "mode" variable to 'shape data' or 'logged
-%    data'.
-%    a) In "shape data" mode use the "OpenTRACK Shape tmp.xlsx" file
-%       to create a new track excel file.
-%    b) In "logged data" mode, use the "OpenTRACK Logged Data tmp.csv"
-%       file to create a new track excel file. Make sure the rows and
-%       columns in the functions correspond to the correct channels.
-%       Channels needed to generate a usable track are distance, speed and
-%       lateral acceleration or yaw velocity. To select between lateral
-%       acceleration and yaw velocity for the curvature calculation, set
-%       the "log_mode" variable to 'speed & latacc' or 'speed & yaw'.
-%       Elevation and banking can be set to 0 everywhere if no data is
-%       available. The grip factor should be set to 1 everywhere, and
-%       tweaked only increase correlation in specific parts of a track. To
-%       filter the logged data, change the duration of the filter from the
-%       "filter_dt" variable (a value of 0.5 [s] is recommended).
-% 2) Set the meshing size to the desired value (a value of 1 to 5 [m] is
-%    recommended).
-% 3) Set the track map rotation angle to the desired value in [deg].
-%    Zero corresponds to the start of the map pointing towards positive X.
-% 4) Run the script.
-% 5) The results will appear on the command window and inside the folder
-%    "OpenTRACK Tracks".
-%
-% More information can be found in the "OpenLAP Laptime Simulator"
-% videos on YouTube.
-%
-% This software is licensed under the GPL V3 Open Source License.
-%
-% Open Source MATLAB project created by:
-%
-% Michael Halkiopoulos
-% Cranfield University Advanced Motorsport MSc Engineer
-% National Technical University of Athens MEng Mechanical Engineer
-%
-% LinkedIn: https://www.linkedin.com/in/michael-halkiopoulos/
-% email: halkiopoulos_michalis@hotmail.com
-% MATLAB file exchange: https://uk.mathworks.com/matlabcentral/fileexchange/
-% GitHub: https://github.com/mc12027
-%
-% April 2020.
-
-%% Clearing memory
-
 clear
 clc
 close all force
@@ -63,11 +11,12 @@ fclose('all') ;
 % filename = 'Monza Data.csv' ;
 % filename = 'OpenTRACK Laguna Seca Data.csv' ;
 % filename = 'OpenTRACK Paul Ricard Data.csv' ;
- %filename = 'Endurance v2.xlsx' ;
- filename = 'AutoX 2019.xlsx' ;
-%filename = 'FSAE_Autocross_Nebraska_2013 copy.xlsx';
-%filename = 'FSA.xlsx'
-% filename = 'FSAE_Endurance_Michigan_2012.xlsx' ;
+%filename = 'track_descriptions/Endurance v2.xlsx' ;
+%filename = 'track_descriptions/AutoX 2019.xlsx' ;
+filename = 'FSAE_Autocross_Nebraska_2013.xlsx';
+%filename = 'AutoX_2024.xlsx'
+%filename = 'track_descriptions/FSAE_Autocross_Nebraska_2013'
+%filename = 'FSAE_Endurance_Michigan_2012.xlsx' ;
 % filename = 'OpenTRACK KZ2 Kart Data - Rhodes.csv' ;
 % filename = 'OpenTRACK KZ2 Kart Data - Athens.csv' ;
 
@@ -87,9 +36,9 @@ filter_dt = 0.1 ; % [s]
 % track map rotation angle
 rotation = 0 ; % [deg]
 % track map shape adjuster
-lambda = 1 ; % [-]
+lambda = 1; % [-]
 % long corner adjuster
-kappa = 1000 ; % [deg]
+kappa = 1000; % [deg]
 
 %% Reading file
 
