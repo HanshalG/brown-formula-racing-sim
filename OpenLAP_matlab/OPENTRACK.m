@@ -13,10 +13,11 @@ fclose('all') ;
 % filename = 'OpenTRACK Paul Ricard Data.csv' ;
 %filename = 'track_descriptions/Endurance v2.xlsx' ;
 %filename = 'track_descriptions/AutoX 2019.xlsx' ;
-filename = 'FSAE_Autocross_Nebraska_2013.xlsx';
+%filename = 'FSAE_Autocross_Nebraska_2013.xlsx';
 %filename = 'AutoX_2024.xlsx'
 %filename = 'track_descriptions/FSAE_Autocross_Nebraska_2013'
-%filename = 'FSAE_Endurance_Michigan_2012.xlsx' ;
+filename = 'Auto2024.xlsx' ;
+filename = 'Endurance2024.xlsx';
 % filename = 'OpenTRACK KZ2 Kart Data - Rhodes.csv' ;
 % filename = 'OpenTRACK KZ2 Kart Data - Athens.csv' ;
 
@@ -30,7 +31,7 @@ log_mode = 'speed & latacc' ;
 %% Settings
 
 % meshing
-mesh_size = 1 ; % [m]
+mesh_size = 0.1 ; % [m]
 % filtering for logged data mode
 filter_dt = 0.1 ; % [s]
 % track map rotation angle
